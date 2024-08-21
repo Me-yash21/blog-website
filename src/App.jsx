@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Triangle } from 'react-loader-spinner'
 import {useSelector, useDispatch} from 'react-redux'
 import authService from './appwrite/auth'
 import {logout, logIn } from './store/authSlice'
@@ -31,7 +32,21 @@ function App() {
         <Footer/>
       </div>
     </div>
-  ) : (<div>...Loading</div>)
+  ) : (
+    <div className='flex items-center justify-center min-h-screen'>
+    <Triangle
+    visible={true}
+    height="100"
+    width="100"
+    color="#8E3131"
+    ariaLabel="triangle-loading"
+    wrapperStyle={{}}
+    wrapperClass=""
+    />
+
+    </div>
+  )
+  
 }
 
 export default App
